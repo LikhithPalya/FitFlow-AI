@@ -1,57 +1,10 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import {Input} from '@/components/ui/input';
-import {Label} from '@/components/ui/label';
-import {Textarea} from '@/components/ui/textarea';
-import {adaptWorkoutPlan} from '@/ai/flows/adapt-workout-plan';
-import {generateWorkoutPlan} from '@/ai/flows/generate-workout-plan';
-import {useForm} from 'react-hook-form';
-import {z} from 'zod';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {useEffect, useRef, useState} from 'react';
-import {toast} from 'react-hot-toast';
-import {cn} from '@/lib/utils';
-import {Loader2} from 'lucide-react';
-import Link from 'next/link';
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
+import Link from 'next/link';
 
-const formSchema = z.object({
-  age: z.string().min(1, {
-    message: 'Age is required.',
-  }),
-  weight: z.string().min(1, {
-    message: 'Weight is required.',
-  }),
-  fitnessGoals: z.string().min(10, {
-    message: 'Fitness goals must be at least 10 characters.',
-  }),
-  availableEquipment: z.string().min(10, {
-    message: 'Available equipment must be at least 10 characters.',
-  }),
-  workoutPlan: z.string().optional(),
-  feedback: z.string().optional(),
-  adaptedWorkoutPlan: z.string().optional(),
-  explanation: z.string().optional(),
-});
-
-export default function Home() {
+export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
       <header className="bg-gray-900 p-4">
@@ -111,8 +64,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      <Toaster/>
     </div>
   );
 }
-import { Toaster } from 'react-hot-toast';
