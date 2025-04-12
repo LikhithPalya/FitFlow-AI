@@ -13,8 +13,8 @@ export default function AboutPage() {
             FitFlow AI
           </Link>
           <div className="flex space-x-4">
-            <Link href="/about" className="hover:text-gray-300">
-              About
+            <Link href="/" className="hover:text-gray-300">
+              Home
             </Link>
           </div>
         </nav>
@@ -22,7 +22,7 @@ export default function AboutPage() {
       <main className="p-4 md:p-8 flex-grow">
         <Card className="w-full max-w-4xl mx-auto my-8 bg-gray-800 text-white rounded-lg shadow-md">
           <CardHeader>
-            <CardTitle className="text-2xl font-semibold">About Likhith Palya</CardTitle>
+            <CardTitle className="text-2xl font-semibold">About the developer - Likhith Palya</CardTitle>
             <CardDescription className="text-gray-400">
               My love language is 200, OK?
             </CardDescription>
@@ -58,7 +58,9 @@ export default function AboutPage() {
         <div className="container mx-auto flex justify-between items-center">
           <p>&copy; {new Date().getFullYear()} FitFlow AI. All rights reserved.</p>
           <div className="flex space-x-4">
+           <a href="/" className="hover:text-gray-300">Home</a>
             <a href="mailto:likhithpalya@gmail.com" className="hover:text-gray-300">likhithpalya@gmail.com</a>
+             <a href="/about" className="hover:text-gray-300">About</a>
             <a href="/privacy" className="hover:text-gray-300">Privacy Policy</a>
             <a href="/terms" className="hover:text-gray-300">Terms of Service</a>
           </div>
@@ -67,3 +69,4 @@ export default function AboutPage() {
     </div>
   );
 }
+
