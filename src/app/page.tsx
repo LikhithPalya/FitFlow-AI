@@ -26,7 +26,7 @@ import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useEffect, useRef, useState} from 'react';
-import {toast} from '@/hooks/use-toast';
+import {toast} from 'react-hot-toast';
 import {cn} from '@/lib/utils';
 import {Loader2} from 'lucide-react';
 
@@ -80,16 +80,14 @@ export default function Home() {
         availableEquipment: values.availableEquipment,
       });
       setWorkoutPlan(generatedPlan.workoutPlan);
-      toast({
-        title: 'Workout plan generated!',
-        description: 'Scroll down to view your workout plan.',
-        duration: 3000, // Display for 3 seconds
+      toast.success('Workout plan generated!', {
+        duration: 3000,
+        position: 'bottom-center',
       });
     } catch (error: any) {
-      toast({
-        variant: 'destructive',
-        title: 'Uh oh! Something went wrong.',
-        description: error.message,
+      toast.error('Uh oh! Something went wrong.', {
+        duration: 3000,
+        position: 'bottom-center',
       });
     } finally {
       setIsLoading(false);
@@ -115,15 +113,14 @@ export default function Home() {
       });
       setAdaptedWorkoutPlan(adaptedPlan.adaptedWorkoutPlan);
       setExplanation(adaptedPlan.explanation);
-      toast({
-        title: 'Workout plan adapted!',
-        description: 'Scroll down to view your adapted workout plan.',
+      toast.success('Workout plan adapted!', {
+        duration: 3000,
+        position: 'bottom-center',
       });
     } catch (error: any) {
-      toast({
-        variant: 'destructive',
-        title: 'Uh oh! Something went wrong.',
-        description: error.message,
+      toast.error('Uh oh! Something went wrong.', {
+        duration: 3000,
+        position: 'bottom-center',
       });
     } finally {
       setIsLoading(false);
@@ -141,10 +138,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-white p-4 md:p-8">
-      <Card className="w-full max-w-2xl mx-auto my-8 bg-gray-800 text-white">
+      <Card className="w-full max-w-2xl mx-auto my-8 bg-gray-800 text-white rounded-lg shadow-md">
         <CardHeader>
-          <CardTitle>FitFlow AI - Personalized Workout Plan</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-2xl font-semibold">FitFlow AI - Personalized Workout Plan</CardTitle>
+          <CardDescription className="text-gray-400">
             Enter your details to generate a personalized workout plan.
           </CardDescription>
         </CardHeader>
@@ -164,7 +161,7 @@ export default function Home() {
                       <Input
                         placeholder="Enter your age"
                         {...field}
-                        className="bg-gray-700 text-white"
+                        className="bg-gray-700 text-white rounded-md"
                       />
                     </FormControl>
                     <FormMessage />
@@ -181,7 +178,7 @@ export default function Home() {
                       <Input
                         placeholder="Enter your weight in kilograms"
                         {...field}
-                        className="bg-gray-700 text-white"
+                        className="bg-gray-700 text-white rounded-md"
                       />
                     </FormControl>
                     <FormMessage />
@@ -198,10 +195,10 @@ export default function Home() {
                       <Textarea
                         placeholder="Describe your fitness goals"
                         {...field}
-                        className="bg-gray-700 text-white"
+                        className="bg-gray-700 text-white rounded-md"
                       />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-gray-400">
                       What do you want to achieve with your workout plan?
                     </FormDescription>
                     <FormMessage />
@@ -218,17 +215,17 @@ export default function Home() {
                       <Textarea
                         placeholder="List the equipment you have available"
                         {...field}
-                        className="bg-gray-700 text-white"
+                        className="bg-gray-700 text-white rounded-md"
                       />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-gray-400">
                       What equipment do you have access to for your workouts?
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading}>
+              <Button type="submit" disabled={isLoading} className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
                 {isLoading && (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 )}
@@ -240,81 +237,83 @@ export default function Home() {
       </Card>
 
       {workoutPlan && (
-        <div ref={workoutPlanRef} className="scroll-mt-20">
-          <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white animate-in fade-in duration-700">
+        <div ref={workoutPlanRef} className="scroll-mt-20 animate-fade-in duration-700">
+          <Card className="w-full max-w-4xl mx-auto my-8 bg-gray-800 text-white rounded-lg shadow-md">
             <CardHeader>
-              <CardTitle>Generated Workout Plan</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-2xl font-semibold">Generated Workout Plan</CardTitle>
+              <CardDescription className="text-gray-400">
                 Here is your <b>personalized</b> workout plan.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label>Workout Plan</Label>
+                <Label className="text-xl">Workout Plan</Label>
                 <div className="text-lg">
                   <p>Okay, here's a 20-day bodyweight workout plan designed to get you fitter, focusing on consistency and progression. Remember to consult your doctor before starting any new workout program. This plan assumes you have no equipment available.</p>
                   <br />
-                  <p><b>Important Considerations:</b></p>
-                  <ul>
-                    <li><b>Warm-up (5-10 minutes before each workout):</b> <a href="https://www.youtube.com/watch?v=SA0wt9p-Wkw">Dynamic stretching</a> like arm circles, leg swings, torso twists, and high knees.</li>
-                    <li><b>Cool-down (5-10 minutes after each workout):</b> <a href="https://www.youtube.com/watch?v=SA0wt9p-Wkw">Static stretching</a>, holding each stretch for 30 seconds (e.g., hamstring stretch, quad stretch, calf stretch, tricep stretch).</li>
-                    <li><b>Rest:</b> Take rest days when needed. Listen to your body. It's better to rest than to push through pain and risk injury.</li>
-                    <li><b>Hydration:</b> Drink plenty of water throughout the day, especially before, during, and after workouts.</li>
-                    <li><b>Nutrition:</b> This is crucial for fitness. Focus on a balanced diet with plenty of protein, fruits, vegetables, and whole grains.</li>
-                    <li><b>Progression:</b> As exercises become easier, increase the repetitions, sets, or difficulty (e.g., try a harder variation of the exercise).</li>
+                  <p className="font-semibold">Important Considerations:</p>
+                  <ul className="list-disc pl-5">
+                    <li><span className="font-semibold">Warm-up (5-10 minutes before each workout):</span> Dynamic stretching like arm circles, leg swings, torso twists, and high knees.</li>
+                    <li><span className="font-semibold">Cool-down (5-10 minutes after each workout):</span> Static stretching, holding each stretch for 30 seconds (e.g., hamstring stretch, quad stretch, calf stretch, tricep stretch).</li>
+                    <li><span className="font-semibold">Rest:</span> Take rest days when needed. Listen to your body. It's better to rest than to push through pain and risk injury.</li>
+                    <li><span className="font-semibold">Hydration:</span> Drink plenty of water throughout the day, especially before, during, and after workouts.</li>
+                    <li><span className="font-semibold">Nutrition:</span> This is crucial for fitness. Focus on a balanced diet with plenty of protein, fruits, vegetables, and whole grains.</li>
+                    <li><span className="font-semibold">Progression:</span> As exercises become easier, increase the repetitions, sets, or difficulty (e.g., try a harder variation of the exercise).</li>
                   </ul>
                   <br />
-                  <p><b>Workout Schedule (Repeat this 5-day cycle four times within 20 days, adjusting reps/sets as needed):</b></p>
-                  <ul>
-                    <li><b>Day 1: Full Body Strength</b>
-                      <ul>
-                        <li>Squats: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 12-15 reps</a></li>
-                        <li>Push-ups (modify on knees if needed): <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of as many reps as possible (AMRAP)</a></li>
-                        <li>Walking Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 10 reps per leg</a></li>
-                        <li>Plank: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets, hold for 30-60 seconds</a></li>
-                        <li>Glute Bridges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps</a></li>
+                  <p className="font-semibold">Workout Schedule (Repeat this 5-day cycle four times within 20 days, adjusting reps/sets as needed):</p>
+                  <ul className="list-disc pl-5">
+                    <li><span className="font-semibold">Day 1: Full Body Strength</span>
+                      <ul className="list-disc pl-5">
+                        <li>Squats: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 12-15 reps</a></li>
+                        <li>Push-ups (modify on knees if needed): <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of as many reps as possible (AMRAP)</a></li>
+                        <li>Walking Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per leg</a></li>
+                        <li>Plank: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets, hold for 30-60 seconds</a></li>
+                        <li>Glute Bridges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
                       </ul>
                     </li>
-                    <li><b>Day 2: Cardio & Core</b>
-                      <ul>
-                        <li>Jumping Jacks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 30 seconds</a></li>
-                        <li>High Knees: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 30 seconds</a></li>
-                        <li>Butt Kicks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 30 seconds</a></li>
-                        <li>Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 15-20 reps</a></li>
-                        <li>Russian Twists: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps per side</a></li>
-                        <li>Bicycle Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 15-20 reps per side</a></li>
+                    <li><span className="font-semibold">Day 2: Cardio & Core</span>
+                      <ul className="list-disc pl-5">
+                        <li>Jumping Jacks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>High Knees: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>Butt Kicks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Russian Twists: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps per side</a></li>
+                        <li>Bicycle Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps per side</a></li>
                       </ul>
                     </li>
-                    <li><b>Day 3: Rest</b></li>
-                    <li><b>Day 4: Upper Body & Core</b>
-                      <ul>
-                        <li>Incline Push-ups (using a wall or elevated surface): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of AMRAP</a></li>
-                        <li>Pike Push-ups: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of as many reps as possible (AMRAP) (if you can't do these, stick to incline push-ups)</a></li>
-                        <li>Superman: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps</a></li>
-                        <li>Bird Dog: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 10 reps per side</a></li>
-                        <li>Reverse Crunches: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps</a></li>
+                    <li><span className="font-semibold">Day 3: Rest</span></li>
+                    <li><span className="font-semibold">Day 4: Upper Body & Core</span>
+                      <ul className="list-disc pl-5">
+                        <li>Incline Push-ups (using a wall or elevated surface): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of AMRAP</a></li>
+                        <li>Pike Push-ups: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of as many reps as possible (AMRAP) (if you can't do these, stick to incline push-ups)</a></li>
+                        <li>Superman: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Bird Dog: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per side</a></li>
+                        <li>Reverse Crunches: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
                       </ul>
                     </li>
-                    <li><b>Day 5: Lower Body & Cardio</b>
-                      <ul>
-                        <li>Squat Jumps: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 10-12 reps</a></li>
-                        <li>Calf Raises: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 15-20 reps</a></li>
-                        <li>Side Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 10 reps per leg</a></li>
-                        <li>Mountain Climbers: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 30 seconds</a></li>
-                        <li>Burpees (modify by stepping out instead of jumping): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 8-10 reps</a></li>
+                    <li><span className="font-semibold">Day 5: Lower Body & Cardio</span>
+                      <ul className="list-disc pl-5">
+                        <li>Squat Jumps: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10-12 reps</a></li>
+                        <li>Calf Raises: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Side Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per leg</a></li>
+                        <li>Mountain Climbers: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>Burpees (modify by stepping out instead of jumping): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 8-10 reps</a></li>
                       </ul>
                     </li>
                   </ul>
                   <br />
-                  <p><b>Exercise Explanations (if needed):</b></p>
-                  <p>(Search for each exercise online for visual demonstrations)</p>
+                  <p className="font-semibold">Exercise Explanations (if needed):</p>
+                  <ul className="list-disc pl-5">
+                    <li>(Search for each exercise online for visual demonstrations)</li>
+                  </ul>
                   <br />
-                  <p><b>Important Notes:</b></p>
-                  <ul>
-                    <li><b>Listen to your body:</b> If you feel pain, stop the exercise and rest. Don't push yourself too hard, especially at the beginning.</li>
-                    <li><b>Stay Consistent:</b> Consistency is key. Try to stick to the workout schedule as much as possible.</li>
-                    <li><b>Proper Form:</b> Focus on maintaining proper form to prevent injuries. Watch videos and pay attention to your body mechanics.</li>
-                    <li><b>Enjoy it!</b> Find ways to make your workouts enjoyable. This will help you stay motivated and consistent.</li>
+                  <p className="font-semibold">Important Notes:</p>
+                  <ul className="list-disc pl-5">
+                    <li><span className="font-semibold">Listen to your body:</span> If you feel pain, stop the exercise and rest. Don't push yourself too hard, especially at the beginning.</li>
+                    <li><span className="font-semibold">Stay Consistent:</span> Consistency is key. Try to stick to the workout schedule as much as possible.</li>
+                    <li><span className="font-semibold">Proper Form:</span> Focus on maintaining proper form to prevent injuries. Watch videos and pay attention to your body mechanics.</li>
+                    <li><span className="font-semibold">Enjoy it!</span> Find ways to make your workouts enjoyable. This will help you stay motivated and consistent.</li>
                   </ul>
                   <br />
                   <p>Good luck with your fitness journey! Remember to combine this workout plan with a healthy diet for optimal results.</p>
@@ -326,16 +325,16 @@ export default function Home() {
       )}
 
       {adaptedWorkoutPlan && (
-        <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white">
+        <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white rounded-lg shadow-md">
           <CardHeader>
-            <CardTitle>Adapted Workout Plan</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl font-semibold">Adapted Workout Plan</CardTitle>
+            <CardDescription className="text-gray-400">
               Based on your feedback, here is the <b>adapted</b> workout plan.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <Label>Adapted Workout Plan</Label>
+              <Label className="text-xl">Adapted Workout Plan</Label>
               <ul className="list-disc pl-5 text-lg">
                 {adaptedWorkoutPlan.split('\n').map((item, index) => (
                   <li key={index}>{item}</li>
@@ -344,13 +343,15 @@ export default function Home() {
             </div>
             {explanation && (
               <div>
-                <Label>Explanation</Label>
-                <Textarea value={explanation} readOnly className="bg-gray-700 text-white" />
+                <Label className="text-xl">Explanation</Label>
+                <Textarea value={explanation} readOnly className="bg-gray-700 text-white rounded-md" />
               </div>
             )}
           </CardContent>
         </Card>
       )}
+      <Toaster/>
     </div>
   );
 }
+import { Toaster } from 'react-hot-toast';
