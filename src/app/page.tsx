@@ -265,40 +265,40 @@ export default function Home() {
                   <ul className="list-disc pl-5">
                     <li><span className="font-semibold">Day 1: Full Body Strength</span>
                       <ul className="list-disc pl-5">
-                        <li>Squats: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 12-15 reps</a></li>
-                        <li>Push-ups (modify on knees if needed): <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of as many reps as possible (AMRAP)</a></li>
-                        <li>Walking Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per leg</a></li>
-                        <li>Plank: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets, hold for 30-60 seconds</a></li>
-                        <li>Glute Bridges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Squats: <a href="https://www.nerdfitness.com/blog/a-beginners-guide-to-squats-infographic/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 12-15 reps</a></li>
+                        <li>Push-ups (modify on knees if needed): <a href="https://www.nerdfitness.com/blog/proper-push-up/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of as many reps as possible (AMRAP)</a></li>
+                        <li>Walking Lunges: <a href="https://www.nerdfitness.com/blog/how-to-do-lunges-properly/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per leg</a></li>
+                        <li>Plank: <a href="https://www.nerdfitness.com/blog/the-super-plank-exercise-your-way-to-a-stronger-core/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets, hold for 30-60 seconds</a></li>
+                        <li>Glute Bridges: <a href="https://www.nerdfitness.com/blog/the-glute-bridge-exercise-your-butt-will-thank-you/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
                       </ul>
                     </li>
                     <li><span className="font-semibold">Day 2: Cardio & Core</span>
                       <ul className="list-disc pl-5">
-                        <li>Jumping Jacks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
-                        <li>High Knees: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
-                        <li>Butt Kicks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
-                        <li>Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
-                        <li>Russian Twists: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps per side</a></li>
-                        <li>Bicycle Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps per side</a></li>
+                        <li>Jumping Jacks: <a href="https://www.nerdfitness.com/blog/how-to-do-jumping-jacks/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>High Knees: <a href="https://www.wellandgood.com/high-knees/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>Butt Kicks: <a href="https://www.verywellfit.com/how-to-do-butt-kicks-1296973/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>Crunches: <a href="https://www.nerdfitness.com/blog/how-to-do-crunches-what-they-are-and-why-you-shouldnt-do-them/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Russian Twists: <a href="https://www.nerdfitness.com/blog/russian-twists/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps per side</a></li>
+                        <li>Bicycle Crunches: <a href="https://www.verywellfit.com/how-to-do-a-bicycle-crunch-5677297/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps per side</a></li>
                       </ul>
                     </li>
                     <li><span className="font-semibold">Day 3: Rest</span></li>
                     <li><span className="font-semibold">Day 4: Upper Body & Core</span>
                       <ul className="list-disc pl-5">
-                        <li>Incline Push-ups (using a wall or elevated surface): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of AMRAP</a></li>
-                        <li>Pike Push-ups: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of as many reps as possible (AMRAP) (if you can't do these, stick to incline push-ups)</a></li>
-                        <li>Superman: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
-                        <li>Bird Dog: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per side</a></li>
-                        <li>Reverse Crunches: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Incline Push-ups (using a wall or elevated surface): <a href="https://www.wikihow.com/Do-an-Incline-Push-Up" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of AMRAP</a></li>
+                        <li>Pike Push-ups: <a href="https://www.nerdfitness.com/blog/pike-push-ups/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of as many reps as possible (AMRAP) (if you can't do these, stick to incline push-ups)</a></li>
+                        <li>Superman: <a href="https://www.nerdfitness.com/blog/superman-exercise/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Bird Dog: <a href="https://www.nerdfitness.com/blog/bird-dog-exercise/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per side</a></li>
+                        <li>Reverse Crunches: <a href="https://www.wikihow.com/Do-Reverse-Crunches" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
                       </ul>
                     </li>
                     <li><span className="font-semibold">Day 5: Lower Body & Cardio</span>
                       <ul className="list-disc pl-5">
-                        <li>Squat Jumps: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10-12 reps</a></li>
-                        <li>Calf Raises: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
-                        <li>Side Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per leg</a></li>
-                        <li>Mountain Climbers: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
-                        <li>Burpees (modify by stepping out instead of jumping): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 8-10 reps</a></li>
+                        <li>Squat Jumps: <a href="https://www.nerdfitness.com/blog/squat-jumps/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10-12 reps</a></li>
+                        <li>Calf Raises: <a href="https://www.nerdfitness.com/blog/calf-raises/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 15-20 reps</a></li>
+                        <li>Side Lunges: <a href="https://www.nerdfitness.com/blog/side-lunges/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 10 reps per leg</a></li>
+                        <li>Mountain Climbers: <a href="https://www.nerdfitness.com/blog/mountain-climbers/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 30 seconds</a></li>
+                        <li>Burpees (modify by stepping out instead of jumping): <a href="https://www.nerdfitness.com/blog/burpees/" className="text-teal-500 hover:text-teal-400" target="_blank">3 sets of 8-10 reps</a></li>
                       </ul>
                     </li>
                   </ul>
