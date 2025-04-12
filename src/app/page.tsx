@@ -256,8 +256,8 @@ export default function Home() {
                   <br />
                   <p><b>Important Considerations:</b></p>
                   <ul>
-                    <li><b>Warm-up (5-10 minutes before each workout):</b> Dynamic stretching like arm circles, leg swings, torso twists, and high knees.</li>
-                    <li><b>Cool-down (5-10 minutes after each workout):</b> Static stretching, holding each stretch for 30 seconds (e.g., hamstring stretch, quad stretch, calf stretch, tricep stretch).</li>
+                    <li><b>Warm-up (5-10 minutes before each workout):</b> <a href="https://www.youtube.com/watch?v=SA0wt9p-Wkw">Dynamic stretching</a> like arm circles, leg swings, torso twists, and high knees.</li>
+                    <li><b>Cool-down (5-10 minutes after each workout):</b> <a href="https://www.youtube.com/watch?v=SA0wt9p-Wkw">Static stretching</a>, holding each stretch for 30 seconds (e.g., hamstring stretch, quad stretch, calf stretch, tricep stretch).</li>
                     <li><b>Rest:</b> Take rest days when needed. Listen to your body. It's better to rest than to push through pain and risk injury.</li>
                     <li><b>Hydration:</b> Drink plenty of water throughout the day, especially before, during, and after workouts.</li>
                     <li><b>Nutrition:</b> This is crucial for fitness. Focus on a balanced diet with plenty of protein, fruits, vegetables, and whole grains.</li>
@@ -268,40 +268,40 @@ export default function Home() {
                   <ul>
                     <li><b>Day 1: Full Body Strength</b>
                       <ul>
-                        <li>Squats: 3 sets of 12-15 reps</li>
-                        <li>Push-ups (modify on knees if needed): 3 sets of as many reps as possible (AMRAP)</li>
-                        <li>Walking Lunges: 3 sets of 10 reps per leg</li>
-                        <li>Plank: 3 sets, hold for 30-60 seconds</li>
-                        <li>Glute Bridges: 3 sets of 15-20 reps</li>
+                        <li>Squats: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 12-15 reps</a></li>
+                        <li>Push-ups (modify on knees if needed): <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of as many reps as possible (AMRAP)</a></li>
+                        <li>Walking Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 10 reps per leg</a></li>
+                        <li>Plank: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets, hold for 30-60 seconds</a></li>
+                        <li>Glute Bridges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps</a></li>
                       </ul>
                     </li>
                     <li><b>Day 2: Cardio & Core</b>
                       <ul>
-                        <li>Jumping Jacks: 3 sets of 30 seconds</li>
-                        <li>High Knees: 3 sets of 30 seconds</li>
-                        <li>Butt Kicks: 3 sets of 30 seconds</li>
-                        <li>Crunches: 3 sets of 15-20 reps</li>
-                        <li>Russian Twists: 3 sets of 15-20 reps per side</li>
-                        <li>Bicycle Crunches: 3 sets of 15-20 reps per side</li>
+                        <li>Jumping Jacks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 30 seconds</a></li>
+                        <li>High Knees: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 30 seconds</a></li>
+                        <li>Butt Kicks: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 30 seconds</a></li>
+                        <li>Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 15-20 reps</a></li>
+                        <li>Russian Twists: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps per side</a></li>
+                        <li>Bicycle Crunches: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 15-20 reps per side</a></li>
                       </ul>
                     </li>
                     <li><b>Day 3: Rest</b></li>
                     <li><b>Day 4: Upper Body & Core</b>
                       <ul>
-                        <li>Incline Push-ups (using a wall or elevated surface): 3 sets of AMRAP</li>
-                        <li>Pike Push-ups: 3 sets of as many reps as possible (AMRAP) (if you can't do these, stick to incline push-ups)</li>
-                        <li>Superman: 3 sets of 15-20 reps</li>
-                        <li>Bird Dog: 3 sets of 10 reps per side</li>
-                        <li>Reverse Crunches: 3 sets of 15-20 reps</li>
+                        <li>Incline Push-ups (using a wall or elevated surface): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of AMRAP</a></li>
+                        <li>Pike Push-ups: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of as many reps as possible (AMRAP) (if you can't do these, stick to incline push-ups)</a></li>
+                        <li>Superman: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps</a></li>
+                        <li>Bird Dog: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 10 reps per side</a></li>
+                        <li>Reverse Crunches: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 15-20 reps</a></li>
                       </ul>
                     </li>
                     <li><b>Day 5: Lower Body & Cardio</b>
                       <ul>
-                        <li>Squat Jumps: 3 sets of 10-12 reps</li>
-                        <li>Calf Raises: 3 sets of 15-20 reps</li>
-                        <li>Side Lunges: 3 sets of 10 reps per leg</li>
-                        <li>Mountain Climbers: 3 sets of 30 seconds</li>
-                        <li>Burpees (modify by stepping out instead of jumping): 3 sets of 8-10 reps</li>
+                        <li>Squat Jumps: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 10-12 reps</a></li>
+                        <li>Calf Raises: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 15-20 reps</a></li>
+                        <li>Side Lunges: <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 10 reps per leg</a></li>
+                        <li>Mountain Climbers: <a href="https://www.youtube.com/watch?v=IODxDxXqkCE">3 sets of 30 seconds</a></li>
+                        <li>Burpees (modify by stepping out instead of jumping): <a href="https://www.youtube.com/watch?v=MVMNk0XAAzA">3 sets of 8-10 reps</a></li>
                       </ul>
                     </li>
                   </ul>
