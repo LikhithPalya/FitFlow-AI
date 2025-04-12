@@ -25,7 +25,7 @@ import {generateWorkoutPlan} from '@/ai/flows/generate-workout-plan';
 import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {toast} from '@/hooks/use-toast';
 import {cn} from '@/lib/utils';
 import {Loader2} from 'lucide-react';
@@ -58,6 +58,7 @@ export default function Home() {
     undefined
   );
   const [isLoading, setIsLoading] = useState(false);
+  const workoutPlanRef = useRef<HTMLDivElement>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -127,6 +128,15 @@ export default function Home() {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (workoutPlanRef.current) {
+      workoutPlanRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, [workoutPlan]);
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-white p-4 md:p-8">
@@ -229,68 +239,26 @@ export default function Home() {
       </Card>
 
       {workoutPlan && (
-        <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white">
-          <CardHeader>
-            <CardTitle>Generated Workout Plan</CardTitle>
-            <CardDescription>
-              Here is your personalized workout plan.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onAdapt)}
-                className="space-y-4"
-              >
-                <FormField
-                  control={form.control}
-                  name="workoutPlan"
-                  render={({field}) => (
-                    <FormItem>
-                      <FormLabel>Workout Plan</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Generated workout plan"
-                          {...field}
-                          defaultValue={workoutPlan}
-                          readOnly
-                          className="bg-gray-700 text-white"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="feedback"
-                  render={({field}) => (
-                    <FormItem>
-                      <FormLabel>Feedback</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Provide feedback on the workout plan"
-                          {...field}
-                          className="bg-gray-700 text-white"
-                        />
-                      </FormControl>
-                      <FormDescription>
-                        How do you feel about this workout plan?
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" disabled={isLoading}>
-                  {isLoading && (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  )}
-                  Adapt Workout Plan
-                </Button>
-              </form>
-            </Form>
-          </CardContent>
-        </Card>
+        <div ref={workoutPlanRef}>
+          <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white animate-in fade-in duration-700">
+            <CardHeader>
+              <CardTitle>Generated Workout Plan</CardTitle>
+              <CardDescription>
+                Here is your <b>personalized</b> workout plan.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <Label>Workout Plan</Label>
+                <ul className="list-disc pl-5 text-lg">
+                  {workoutPlan.split('\n').map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       )}
 
       {adaptedWorkoutPlan && (
@@ -298,7 +266,7 @@ export default function Home() {
           <CardHeader>
             <CardTitle>Adapted Workout Plan</CardTitle>
             <CardDescription>
-              Based on your feedback, here is the adapted workout plan.
+              Based on your feedback, here is the <b>adapted</b> workout plan.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -316,24 +284,6 @@ export default function Home() {
                 <Textarea value={explanation} readOnly className="bg-gray-700 text-white" />
               </div>
             )}
-          </CardContent>
-        </Card>
-      )}
-      {workoutPlan && !adaptedWorkoutPlan && (
-        <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white">
-          <CardHeader>
-            <CardTitle>Generated Workout Plan</CardTitle>
-            <CardDescription>Here is your personalized workout plan.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Label>Workout Plan</Label>
-              <ul className="list-disc pl-5 text-lg">
-                {workoutPlan.split('\n').map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
           </CardContent>
         </Card>
       )}
