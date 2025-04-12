@@ -83,6 +83,7 @@ export default function Home() {
       toast({
         title: 'Workout plan generated!',
         description: 'Scroll down to view your workout plan.',
+        duration: 3000, // Display for 3 seconds
       });
     } catch (error: any) {
       toast({
@@ -239,7 +240,7 @@ export default function Home() {
       </Card>
 
       {workoutPlan && (
-        <div ref={workoutPlanRef}>
+        <div ref={workoutPlanRef} className="scroll-mt-20">
           <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white animate-in fade-in duration-700">
             <CardHeader>
               <CardTitle>Generated Workout Plan</CardTitle>
@@ -250,11 +251,74 @@ export default function Home() {
             <CardContent className="space-y-4">
               <div>
                 <Label>Workout Plan</Label>
-                <ul className="list-disc pl-5 text-lg">
-                  {workoutPlan.split('\n').map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+                <div className="text-lg">
+                  <p>Okay, here's a 20-day bodyweight workout plan designed to get you fitter, focusing on consistency and progression. Remember to consult your doctor before starting any new workout program. This plan assumes you have no equipment available.</p>
+                  <br />
+                  <p><b>Important Considerations:</b></p>
+                  <ul>
+                    <li><b>Warm-up (5-10 minutes before each workout):</b> Dynamic stretching like arm circles, leg swings, torso twists, and high knees.</li>
+                    <li><b>Cool-down (5-10 minutes after each workout):</b> Static stretching, holding each stretch for 30 seconds (e.g., hamstring stretch, quad stretch, calf stretch, tricep stretch).</li>
+                    <li><b>Rest:</b> Take rest days when needed. Listen to your body. It's better to rest than to push through pain and risk injury.</li>
+                    <li><b>Hydration:</b> Drink plenty of water throughout the day, especially before, during, and after workouts.</li>
+                    <li><b>Nutrition:</b> This is crucial for fitness. Focus on a balanced diet with plenty of protein, fruits, vegetables, and whole grains.</li>
+                    <li><b>Progression:</b> As exercises become easier, increase the repetitions, sets, or difficulty (e.g., try a harder variation of the exercise).</li>
+                  </ul>
+                  <br />
+                  <p><b>Workout Schedule (Repeat this 5-day cycle four times within 20 days, adjusting reps/sets as needed):</b></p>
+                  <ul>
+                    <li><b>Day 1: Full Body Strength</b>
+                      <ul>
+                        <li>Squats: 3 sets of 12-15 reps</li>
+                        <li>Push-ups (modify on knees if needed): 3 sets of as many reps as possible (AMRAP)</li>
+                        <li>Walking Lunges: 3 sets of 10 reps per leg</li>
+                        <li>Plank: 3 sets, hold for 30-60 seconds</li>
+                        <li>Glute Bridges: 3 sets of 15-20 reps</li>
+                      </ul>
+                    </li>
+                    <li><b>Day 2: Cardio & Core</b>
+                      <ul>
+                        <li>Jumping Jacks: 3 sets of 30 seconds</li>
+                        <li>High Knees: 3 sets of 30 seconds</li>
+                        <li>Butt Kicks: 3 sets of 30 seconds</li>
+                        <li>Crunches: 3 sets of 15-20 reps</li>
+                        <li>Russian Twists: 3 sets of 15-20 reps per side</li>
+                        <li>Bicycle Crunches: 3 sets of 15-20 reps per side</li>
+                      </ul>
+                    </li>
+                    <li><b>Day 3: Rest</b></li>
+                    <li><b>Day 4: Upper Body & Core</b>
+                      <ul>
+                        <li>Incline Push-ups (using a wall or elevated surface): 3 sets of AMRAP</li>
+                        <li>Pike Push-ups: 3 sets of as many reps as possible (AMRAP) (if you can't do these, stick to incline push-ups)</li>
+                        <li>Superman: 3 sets of 15-20 reps</li>
+                        <li>Bird Dog: 3 sets of 10 reps per side</li>
+                        <li>Reverse Crunches: 3 sets of 15-20 reps</li>
+                      </ul>
+                    </li>
+                    <li><b>Day 5: Lower Body & Cardio</b>
+                      <ul>
+                        <li>Squat Jumps: 3 sets of 10-12 reps</li>
+                        <li>Calf Raises: 3 sets of 15-20 reps</li>
+                        <li>Side Lunges: 3 sets of 10 reps per leg</li>
+                        <li>Mountain Climbers: 3 sets of 30 seconds</li>
+                        <li>Burpees (modify by stepping out instead of jumping): 3 sets of 8-10 reps</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <br />
+                  <p><b>Exercise Explanations (if needed):</b></p>
+                  <p>(Search for each exercise online for visual demonstrations)</p>
+                  <br />
+                  <p><b>Important Notes:</b></p>
+                  <ul>
+                    <li><b>Listen to your body:</b> If you feel pain, stop the exercise and rest. Don't push yourself too hard, especially at the beginning.</li>
+                    <li><b>Stay Consistent:</b> Consistency is key. Try to stick to the workout schedule as much as possible.</li>
+                    <li><b>Proper Form:</b> Focus on maintaining proper form to prevent injuries. Watch videos and pay attention to your body mechanics.</li>
+                    <li><b>Enjoy it!</b> Find ways to make your workouts enjoyable. This will help you stay motivated and consistent.</li>
+                  </ul>
+                  <br />
+                  <p>Good luck with your fitness journey! Remember to combine this workout plan with a healthy diet for optimal results.</p>
+                </div>
               </div>
             </CardContent>
           </Card>
