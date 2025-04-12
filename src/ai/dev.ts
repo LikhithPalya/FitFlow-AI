@@ -1,1 +1,2 @@
-// Flows will be imported for their side effects in this file.
+import '@/ai/flows/adapt-workout-plan.ts';
+import '@/ai/flows/generate-workout-plan.ts';
