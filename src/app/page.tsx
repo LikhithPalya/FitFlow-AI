@@ -558,9 +558,9 @@ export default function Home() {
           <p>&copy; {new Date().getFullYear()} FitFlow AI. All rights reserved.</p>
           <div className="flex space-x-4">
              <a href="/" className="hover:text-gray-300">Home</a>
-            <a href="mailto:likhithpalya@gmail.com" className="hover:text-gray-300">
+            {/* <a href="mailto:likhithpalya@gmail.com" className="hover:text-gray-300">
               likhithpalya@gmail.com
-            </a>
+            </a> */}
             <a href="/about" className="hover:text-gray-300">About</a>
             <a href="/privacy" className="hover:text-gray-300">Privacy Policy</a>
             <a href="/terms" className="hover:text-gray-300">Terms of Service</a>
