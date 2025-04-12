@@ -53,6 +53,8 @@ User Feedback:
 User Profile:
 {{userProfile}}
 
+//test
+
 Ensure the adapted workout plan is safe and effective for the user, do not increase the difficulty too fast.
 Output the adapted workout plan in JSON format, and provide a short explanation of the changes you made.
 `,
