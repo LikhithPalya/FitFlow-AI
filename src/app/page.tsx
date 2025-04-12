@@ -5,7 +5,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -27,9 +26,9 @@ import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useEffect, useState} from 'react';
-import {toast} from "@/hooks/use-toast"
-import { cn } from "@/lib/utils"
-import { Loader2 } from "lucide-react"
+import {toast} from '@/hooks/use-toast';
+import {cn} from '@/lib/utils';
+import {Loader2} from 'lucide-react';
 
 const formSchema = z.object({
   age: z.string().min(1, {
@@ -55,7 +54,7 @@ export default function Home() {
   const [adaptedWorkoutPlan, setAdaptedWorkoutPlan] = useState<string | undefined>(
     undefined
   );
-    const [explanation, setExplanation] = useState<string | undefined>(
+  const [explanation, setExplanation] = useState<string | undefined>(
     undefined
   );
   const [isLoading, setIsLoading] = useState(false);
@@ -80,23 +79,23 @@ export default function Home() {
         availableEquipment: values.availableEquipment,
       });
       setWorkoutPlan(generatedPlan.workoutPlan);
-        toast({
-        title: "Workout plan generated!",
-        description: "Scroll down to view your workout plan.",
-      })
+      toast({
+        title: 'Workout plan generated!',
+        description: 'Scroll down to view your workout plan.',
+      });
     } catch (error: any) {
-       toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: error.message,
-        })
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: error.message,
+      });
     } finally {
       setIsLoading(false);
     }
   }
 
   async function onAdapt(values: z.infer<typeof formSchema>) {
-      setIsLoading(true);
+    setIsLoading(true);
     try {
       if (!values.workoutPlan) {
         throw new Error('Workout plan is required to adapt.');
@@ -114,24 +113,24 @@ export default function Home() {
       });
       setAdaptedWorkoutPlan(adaptedPlan.adaptedWorkoutPlan);
       setExplanation(adaptedPlan.explanation);
-        toast({
-        title: "Workout plan adapted!",
-        description: "Scroll down to view your adapted workout plan.",
-      })
+      toast({
+        title: 'Workout plan adapted!',
+        description: 'Scroll down to view your adapted workout plan.',
+      });
     } catch (error: any) {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: error.message,
-        })
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: error.message,
+      });
     } finally {
-         setIsLoading(false);
+      setIsLoading(false);
     }
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-secondary p-4 md:p-8">
-      <Card className="w-full max-w-2xl mx-auto my-8">
+    <div className="flex flex-col min-h-screen bg-black text-white p-4 md:p-8">
+      <Card className="w-full max-w-2xl mx-auto my-8 bg-gray-800 text-white">
         <CardHeader>
           <CardTitle>FitFlow AI - Personalized Workout Plan</CardTitle>
           <CardDescription>
@@ -151,7 +150,11 @@ export default function Home() {
                   <FormItem>
                     <FormLabel>Age</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your age" {...field} />
+                      <Input
+                        placeholder="Enter your age"
+                        {...field}
+                        className="bg-gray-700 text-white"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -167,6 +170,7 @@ export default function Home() {
                       <Input
                         placeholder="Enter your weight in kilograms"
                         {...field}
+                        className="bg-gray-700 text-white"
                       />
                     </FormControl>
                     <FormMessage />
@@ -183,6 +187,7 @@ export default function Home() {
                       <Textarea
                         placeholder="Describe your fitness goals"
                         {...field}
+                        className="bg-gray-700 text-white"
                       />
                     </FormControl>
                     <FormDescription>
@@ -202,6 +207,7 @@ export default function Home() {
                       <Textarea
                         placeholder="List the equipment you have available"
                         {...field}
+                        className="bg-gray-700 text-white"
                       />
                     </FormControl>
                     <FormDescription>
@@ -223,7 +229,7 @@ export default function Home() {
       </Card>
 
       {workoutPlan && (
-        <Card className="w-full max-w-2xl mx-auto my-8">
+        <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white">
           <CardHeader>
             <CardTitle>Generated Workout Plan</CardTitle>
             <CardDescription>
@@ -248,6 +254,7 @@ export default function Home() {
                           {...field}
                           defaultValue={workoutPlan}
                           readOnly
+                          className="bg-gray-700 text-white"
                         />
                       </FormControl>
                       <FormMessage />
@@ -264,6 +271,7 @@ export default function Home() {
                         <Textarea
                           placeholder="Provide feedback on the workout plan"
                           {...field}
+                          className="bg-gray-700 text-white"
                         />
                       </FormControl>
                       <FormDescription>
@@ -286,7 +294,7 @@ export default function Home() {
       )}
 
       {adaptedWorkoutPlan && (
-        <Card className="w-full max-w-2xl mx-auto my-8">
+        <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white">
           <CardHeader>
             <CardTitle>Adapted Workout Plan</CardTitle>
             <CardDescription>
@@ -296,14 +304,36 @@ export default function Home() {
           <CardContent className="space-y-4">
             <div>
               <Label>Adapted Workout Plan</Label>
-              <Textarea value={adaptedWorkoutPlan} readOnly />
+              <ul className="list-disc pl-5 text-lg">
+                {adaptedWorkoutPlan.split('\n').map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
             </div>
-              {explanation && (
-                <div>
-                  <Label>Explanation</Label>
-                  <Textarea value={explanation} readOnly />
-                </div>
-              )}
+            {explanation && (
+              <div>
+                <Label>Explanation</Label>
+                <Textarea value={explanation} readOnly className="bg-gray-700 text-white" />
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
+      {workoutPlan && !adaptedWorkoutPlan && (
+        <Card className="w-full max-w-3xl mx-auto my-8 bg-gray-800 text-white">
+          <CardHeader>
+            <CardTitle>Generated Workout Plan</CardTitle>
+            <CardDescription>Here is your personalized workout plan.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Label>Workout Plan</Label>
+              <ul className="list-disc pl-5 text-lg">
+                {workoutPlan.split('\n').map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </CardContent>
         </Card>
       )}
