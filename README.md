@@ -11,7 +11,7 @@ The core functionality includes:
 - Personalized Workout Generation: AI-driven generation of custom workout plans.
 - Adaptive Planning: Adjusting workout plans in response to user feedback and progress.
 - User-Friendly Interface: Providing an intuitive way for users to interact with the AI.
-
+## Contributing
 **Technologies Used:**
 - Next.js: A React framework for building the web application's user interface.
 - TypeScript: For adding type safety to the codebase.
@@ -19,3 +19,6 @@ The core functionality includes:
 
 - UI Components: Reusable components for a consistent and accessible user experience.
 - Git: To manage the source code and collaboration.
+
+We encourage you to clone this repository, contribute to the project, and help make FitFlow-AI even better!
+
