@@ -114,39 +114,6 @@ export default function Home() {
         </nav>
       </header>
       <main className="p-4 md:p-8 flex-grow">
-        <Card className="w-full max-w-4xl mx-auto my-8 bg-gray-800 text-white rounded-lg shadow-md">
-          <CardHeader>
-            <CardTitle className="text-2xl font-semibold">About the developer - Likhith Palya</CardTitle>
-            <CardDescription className="text-gray-400">
-              My love language is 200, OK?
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex items-center space-x-4">
-            <Avatar className="h-32 w-32">
-              <AvatarImage src="https://picsum.photos/200/200" alt="Likhith Palya" />
-              <AvatarFallback>LP</AvatarFallback>
-            </Avatar>
-            <div>
-              <p className="text-lg">
-                I'm Likhith Palya, a third-year engineering student at UVCE,
-                Bengaluru, with a strong passion for software development and
-                problem-solving. My foundation in Data Structures and Algorithms
-                is complemented by hands-on experience in full-stack web
-                development using JavaScript and related technologies. I’ve
-                built several projects, including a collaborative online code
-                editor and dynamic web apps. My tech journey began as a Business
-                Development intern at Phyllo, where I honed my communication and
-                teamwork skills. Currently, as the SAP Campus Champion at UVCE, I
-                lead initiatives to foster innovation, combining technical
-                expertise with leadership to build scalable, impactful,
-                community-driven platforms.
-              </p>
-              <p className="text-gray-400 mt-2">
-                Contact me at: <a href="mailto:likhithpalya@gmail.com" className="hover:underline">likhithpalya@gmail.com</a>
-              </p>
-            </div>
-          </CardContent>
-        </Card>
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-3xl font-bold text-center mb-8">
             Personalized Workout Plan Generator
@@ -605,4 +572,3 @@ export default function Home() {
   );
 }
 import { Toaster } from 'react-hot-toast';
-
